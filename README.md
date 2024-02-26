@@ -1,1 +1,0 @@
-# practicaFund_Node_Mongo
