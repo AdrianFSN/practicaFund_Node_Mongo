@@ -3,10 +3,10 @@
 Building a basic app to sell/buy second hand products.
 
 ## Framework Express-generator
-Run express-generator over my app:
+Run express-generator over my app and use ejs templates:
 
 ```js
-npx install express-generator nodepop
+npx install express-generator --ejs nodepop
 ```
 
 Install dependencies.
@@ -33,4 +33,14 @@ Set environment variables under package.json > scripts:
 
   ```js
   npm run dev
+  ```
+  Install Helmet library to protect my app and hide some info in my requests:
+
+  ```js
+  npm install hemlmet
+  ```
+  Install Mongoose to make Mongo schemas:
+
+  ```js
+  npm install mongoose
   ```
