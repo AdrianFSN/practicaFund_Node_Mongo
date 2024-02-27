@@ -101,7 +101,6 @@ router.delete('/:id', async (req, res, next) => {
         const id = req.params.id;
         await AdNopop.deleteOne({ _id: id });
         res.json(); // sin más, porque al haber borrado, con que la respuesta sea un 200, todo habrá ido bien.
-
     } catch (error) {
         next(error);
     };

@@ -114,6 +114,7 @@ Delete ad:
 DELETE /api/adsNodepop/<_id> (body)
 
 ```json
+Empty (check status 200 OK in Postman)
 
 ```
 
