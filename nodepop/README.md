@@ -44,3 +44,76 @@ Set environment variables under package.json > scripts:
   ```js
   npm install mongoose
   ```
+  ## API
+
+  **Ads list:**
+
+  GET /api/adsNodepop
+
+  ```json
+{
+"results": [
+{
+"_id": "65ddaa5ce0297868048c7797",
+"name": "IPhone 13",
+"onSale": true,
+"price": 600,
+"picture": "/aaaa.png",
+"tag": [
+"mobile",
+"work"
+],
+"__v": 0
+}
+]
+}
+```
+**Update ad:**
+
+PUT /api/adsNodepop/<_id> (body)
+
+```json
+{
+    "result": {
+        "_id": "65ddaa80e0297868048c7799",
+        "name": "Samsung Galaxy Flip 4",
+        "onSale": true,
+        "price": 500,
+        "picture": "/ccc.png",
+        "tag": [
+            "mobile",
+            "work"
+        ],
+        "__v": 0
+    }
+}
+```
+
+
+**Insert ad:**
+
+POST /api/adsNodepop
+
+```json
+{
+    "result": {
+        "name": "Nikon 3100",
+        "onSale": false,
+        "price": 75,
+        "picture": "/ddd.png",
+        "tag": [
+            "lifestyle"
+        ],
+        "_id": "65ddb5c0c405c54ba9c3e9fb",
+        "__v": 0
+    }
+}
+```
+Delete ad:
+
+DELETE /api/adsNodepop/<_id> (body)
+
+```json
+
+```
+

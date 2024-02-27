@@ -40,12 +40,28 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+
+  // errores de validación
+  if (err.array) {
+    const errInfo = err.array({})[0]; //Elijo que sea solo el primero en esta ocasión.
+    console.log(errInfo); // esto es solo para ver los parámetros del error y usarlos en la línea siguiente:
+    err.message = `Not valid - ${errInfo.type} ${errInfo.location} in ${errInfo.path}: ${errInfo.msg}`;
+    err.status = 422;
+  }
+
+  // Si el fallo es en el API
+  // Responder en JSON
+  if (req.originalUrl.startsWith('/api/')) {
+    res.json({ error: err.message });
+    return;
+  };
+
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
   res.render('error');
 });
 

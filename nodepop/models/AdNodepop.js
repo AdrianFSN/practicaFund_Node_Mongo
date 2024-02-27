@@ -5,12 +5,19 @@ const mongoose = require('mongoose');
 
 
 const adSchema = mongoose.Schema({
-    //{tag: 'mobile', name: 'Samsung Galaxy Flip 4', onSale: true, price: 500, picture: '\ññññ' }
-    tag: String,
-    name: String,
-    onSale: Boolean,
-    price: Number,
-    picture: String
+    name: { type: String, required: true },
+    onSale: { type: Boolean, required: true },
+    price: { type: Number, required: true },
+    picture: String,
+    tag: {
+        type: [String],
+        validate: {
+            validator: function (tags) {
+                return tags.length > 0;
+            },
+            message: 'All ads must have at least one tag'
+        }
+    }
 });
 
 // método listar (estático), porque está en el modelo
