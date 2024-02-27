@@ -40,7 +40,7 @@ function askQuestion(text) {
         });
         ifc.question(text, answer => {
             ifc.close();
-            resolve(answer.toLowerCase() === 'si');
+            resolve(answer.toLowerCase() === 'yes');
         })
     });
 }

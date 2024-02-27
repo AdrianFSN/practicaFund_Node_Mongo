@@ -119,7 +119,9 @@ Empty (check status 200 OK in Postman)
 ```
 Initialize the Data Base:
 
-**WARNING: the next command deletes the whole database!!!
+**WARNING: the next command deletes the whole database!!!**
+
+Answer 'yes' if you are sure of what you are doing.
 
 ```sh
 npm run init-db
