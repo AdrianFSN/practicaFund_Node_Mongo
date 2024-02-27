@@ -9,7 +9,7 @@ router.get('/', async function (req, res, next) {
     try {
         const filterByTag = req.query.tag;
         const filterByName = req.query.name;
-        const filterByOnSale = req.query.onsSale;
+        const filterByOnSale = req.query.onSale;
         const filterByPrice = req.query.price;
 
         //paginación

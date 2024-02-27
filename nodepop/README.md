@@ -5,19 +5,19 @@ Building a basic app to sell/buy second hand products.
 ## Framework Express-generator
 Run express-generator over my app and use ejs templates:
 
-```js
+```sh
 npx install express-generator --ejs nodepop
 ```
 
 Install dependencies.
 
-```js
+```sh
 npm install
 ```
 
 And install nodemon under dev depencies:
 
-```js
+```sh
 npm i nodemon –save-dev
 ```
 
@@ -31,17 +31,17 @@ Set environment variables under package.json > scripts:
   ```
   Hence run app in dev mode (port 3001) by:
 
-  ```js
+  ```sh
   npm run dev
   ```
   Install Helmet library to protect my app and hide some info in my requests:
 
-  ```js
+  ```sh
   npm install hemlmet
   ```
   Install Mongoose to make Mongo schemas:
 
-  ```js
+  ```sh
   npm install mongoose
   ```
   ## API
@@ -109,7 +109,7 @@ POST /api/adsNodepop
     }
 }
 ```
-Delete ad:
+**Delete ad:**
 
 DELETE /api/adsNodepop/<_id> (body)
 
@@ -117,4 +117,10 @@ DELETE /api/adsNodepop/<_id> (body)
 Empty (check status 200 OK in Postman)
 
 ```
+Initialize the Data Base:
 
+**WARNING: the next command deletes the whole database!!!
+
+```sh
+npm run init-db
+```
