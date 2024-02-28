@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const AdNopop = require('../models/AdNodepop');
+const tagsRouter = require('./tags');
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
@@ -29,7 +30,6 @@ router.get('/', async function (req, res, next) {
     if (filterByName) {
       filter.name = new RegExp('^' + filterByName, "i");
     }
-
     if (filterByOnSale) {
       filter.onSale = filterByOnSale;
     }
@@ -45,6 +45,9 @@ router.get('/', async function (req, res, next) {
   }
 });
 
+//Router to get the main list:
 
+// Router to get the tags list:
+router.use('/tags', tagsRouter);
 
 module.exports = router;

@@ -20,6 +20,11 @@
   <p>
     Artículos disponibles:
   </p>
+  <p>
+    <% if (adsList.length===0) {%>
+      No se ha encontrado ningún anuncio con tus criterios de búsqueda.
+      <% }%>
+  </p>
   <ul>
     <% for (let i=0; i < adsList.length; i++) { %>
       <% const ad=adsList[i]; %>
@@ -27,23 +32,17 @@
           <h2>
             <%= ad.name %>
           </h2>
-          <% if (ad.onSale) { %>
+          <p>
+            Tipo de anuncio: <%= ad.onSale ? 'Venta' : 'Se busca' %>
+          </p>
+          <% if (ad.price) { %>
             <p>
-              Tipo de anuncio: Venta |
+              Precio: <%= ad.price %> €
             </p>
-            <% } else { %>
-              <p>
-                Tipo de anuncio: Se busca |
-              </p>
-              <% } %>
-                <% if (ad.price) { %>
-                  <p>
-                    Precio: <%= ad.price %> € |
-                  </p>
-                  <% } %>
-                    <% if (ad.tag && ad.tag.length> 0) { %>
-                      <p>
-                        Categoría: <%= ad.tag.join(', ') %> |
+            <% } %>
+              <% if (ad.tag && ad.tag.length> 0) { %>
+                <p>
+                  Categoría: <%= ad.tag.join(', ') %> 
           </p>
         <% } %>
         <% if (ad.picture) { %>
@@ -54,6 +53,9 @@
       </li>
     <% } %>
   </ul>
+  <p>
+    Esta es la lista <%= lista %>
+  </p>
 </body>
 
 </html>
