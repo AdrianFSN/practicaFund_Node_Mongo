@@ -22,14 +22,37 @@
   </p>
   <ul>
     <% for (let i=0; i < adsList.length; i++) { %>
-      <li>
-        Artículo anunciado: <%= adsList[i].name %> |
-          Venta: <%= adsList[i].onSale %> |
-            Precio: <%= adsList[i].price %> € |
-              Categoría: <%= adsList[i].tag %> |
-                Foto: <%= adsList[i].picture %>
+      <% const ad=adsList[i]; %>
+        <li>
+          <h2>
+            <%= ad.name %>
+          </h2>
+          <% if (ad.onSale) { %>
+            <p>
+              Tipo de anuncio: Venta |
+            </p>
+            <% } else { %>
+              <p>
+                Tipo de anuncio: Se busca |
+              </p>
+              <% } %>
+                <% if (ad.price) { %>
+                  <p>
+                    Precio: <%= ad.price %> € |
+                  </p>
+                  <% } %>
+                    <% if (ad.tag && ad.tag.length> 0) { %>
+                      <p>
+                        Categoría: <%= ad.tag.join(', ') %> |
+          </p>
+        <% } %>
+        <% if (ad.picture) { %>
+          <p>
+            Foto: <%= ad.picture %>
+          </p>
+        <% } %>
       </li>
-      <% } %>
+    <% } %>
   </ul>
 </body>
 

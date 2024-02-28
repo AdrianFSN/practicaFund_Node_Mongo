@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Rutas del API
  */
-app.use('/api/adsNodepop', basicAuth, require('./routes/api/ads'));
+//app.use('/api/adsNodepop', basicAuth, require('./routes/api/ads'));
 
 /**
  * Rutas del website
