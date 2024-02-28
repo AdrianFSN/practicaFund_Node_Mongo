@@ -43,7 +43,7 @@ router.get('/', async function (req, res, next) {
             filter.price = filterByPrice;
         }
 
-        const adsList = await AdNopop.listar(filter, skip, limit, sort, fields); // he cambiado find por listar
+        const adsList = await AdNopop.listCriterias(filter, skip, limit, sort, fields); // he cambiado find por listCriterias
         res.json({ results: adsList });
     } catch (error) {
         next(error);

@@ -21,8 +21,8 @@ const adSchema = mongoose.Schema({
     }
 });
 
-// método listar (estático), porque está en el modelo
-adSchema.statics.listar = function (filtro, skip, limit, sort, fields) {
+// método listCriterias (estático), porque está en el modelo
+adSchema.statics.listCriterias = function (filtro, skip, limit, sort, fields) {
     const query = AdNodepop.find(filtro);
     query.skip(skip);
     query.limit(limit);

@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>
+    Te damos la bienvenida a <b>
+      <%= title %>
+    </b>, tu tienda de segunda mano.
+  </p>
+  <p>
+    Artículos disponibles:
+  </p>
+  <ul>
+    <% for (let i=0; i < adsList.length; i++) { %>
+      <li>
+        Artículo anunciado: <%= adsList[i].name %> |
+          Venta: <%= adsList[i].onSale %> |
+            Precio: <%= adsList[i].price %> € |
+              Categoría: <%= adsList[i].tag %> |
+                Foto: <%= adsList[i].picture %>
+      </li>
+      <% } %>
+  </ul>
+</body>
+
 </html>
