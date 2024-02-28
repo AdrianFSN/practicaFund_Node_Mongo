@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const AdNopop = require('../models/AdNodepop');
-const adsRouter = require('./mainList');
-const tagsRouter = require('./tags');
+//const AdNopop = require('../models/AdNodepop');
+const adsRouter = require('./api/mainList');
+const tagsRouter = require('./api/tags');
 
 
 
