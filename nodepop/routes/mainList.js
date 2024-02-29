@@ -9,10 +9,9 @@ router.get('/',
     [
         query('name').optional().notEmpty().withMessage('At least one character is needed to search by name'),
         query('onSale').optional().custom(value => {
-            const valueToLowerCase = value.toLowerCase();
-            const saleStatus = ['true', 'false'];
+            const valueToBoolean = Boolean(value);
 
-            if (saleStatus.includes(valueToLowerCase)) {
+            if (valueToBoolean === true || valueToBoolean === false) {
                 return true;
             }
 
@@ -26,7 +25,7 @@ router.get('/',
                 return true;
         }
         ).withMessage('Tag can only be "Lifestyle", "Mobile", "Motor" or "Work"'),
-        query('price').optional().isNumeric().withMessage('Price should be a number')
+        query('price').optional().isNumeric().withMessage('Price can not be empty and should be a number')
     ],
 
     async function (req, res, next) {
@@ -35,9 +34,9 @@ router.get('/',
             validationResult(req).throw();
 
             // filters
-            const filterByTag = req.query.tag;
+            const filterByTag = req.query.tag ? req.query.tag.toLowerCase() : req.query.tag;
             const filterByName = req.query.name;
-            const filterByOnSale = req.query.onSale;
+            const filterByOnSale = req.query.onSale ? req.query.onSale.toLowerCase() : req.query.onSale;
             const filterByPrice = req.query.price;
 
             //paging

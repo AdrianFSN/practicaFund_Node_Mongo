@@ -5,14 +5,16 @@ const mongoose = require('mongoose');
 
 
 const adSchema = mongoose.Schema({
-    name: { type: String, required: true, index: true },
+    name: {
+        type: String, required: true, index: true
+    },
     onSale: { type: Boolean, required: true, index: true },
     price: { type: Number, required: true, index: true },
     picture: String,
     tag: {
         type: [String],
         validate: {
-            validator: function (tags) {
+            validator: (tags) => {
                 return tags.length > 0;
             },
             message: 'All ads must have at least one tag'
