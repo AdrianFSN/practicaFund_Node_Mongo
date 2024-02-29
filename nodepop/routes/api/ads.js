@@ -5,7 +5,6 @@ const AdNopop = require('../../models/AdNodepop');
 // GET /api/adsNodepop
 // Returns the whole list of ads
 router.get('/', async function (req, res, next) {
-    // Sample: http://127.0.0.1:3001/api/adsNodepop?price=500
     try {
         const filterByTag = req.query.tag;
         const filterByName = req.query.name;
@@ -13,21 +12,14 @@ router.get('/', async function (req, res, next) {
         const filterByPrice = req.query.price;
 
         // Paging
-        // Sample http://127.0.0.1:3001/api/adsNodepop?skip=2&limit=2
         const skip = req.query.skip;
         const limit = req.query.limit;
 
         // Ordering
-        // Sample http://127.0.0.1:3001/api/adsNodepop?skip=2&limit=2&sort=price
-        // Sample http://127.0.0.1:3001/api/adsNodepop?sort=price
-        // Sample http://127.0.0.1:3001/api/adsNodepop?sort=-price
-        // Sample http://127.0.0.1:3001/api/adsNodepop?sort=-price%20name
         const sort = req.query.sort;
 
         // Fields selection
-        // Sample http://127.0.0.1:3001/api/adsNodepop?fields=name
         const fields = req.query.fields;
-
 
         const filter = {};
 
@@ -35,7 +27,7 @@ router.get('/', async function (req, res, next) {
             filter.tag = filterByTag;
         }
         if (filterByName) {
-            filter.name = filterByName;
+            filter.name = new RegExp('^' + filterByName, "i");
         }
 
         if (filterByOnSale) {
@@ -46,7 +38,13 @@ router.get('/', async function (req, res, next) {
         }
 
         const adsList = await AdNopop.listCriterias(filter, skip, limit, sort, fields); // he cambiado find por listCriterias
-        res.json({ results: adsList });
+
+        if (req.accepts('html')) {
+            res.render('index', { title: 'Nodepop', adsList: adsList });
+        } else {
+            res.json({ results: adsList });
+        };
+
     } catch (error) {
         next(error);
     };
@@ -58,8 +56,12 @@ router.get('/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
         const oneAd = await AdNopop.findById(id);
-        res.json({ result: oneAd });
 
+        if (req.accepts('html')) {
+            res.render('index', { title: 'Nodepop', adsList: [oneAd] });
+        } else {
+            res.json({ result: oneAd });
+        }
     } catch (error) {
         next(error);
     }
