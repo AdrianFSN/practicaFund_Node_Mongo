@@ -36,6 +36,8 @@ Set environment variables under package.json > scripts:
   ```
   ## API
 
+  The access to the API is protected with user/password authentication.
+
   **Ads list:**
 
   GET /api/adsNodepop
@@ -116,3 +118,4 @@ Answer 'yes' if you are sure of what you are doing.
 ```sh
 npm run init-db
 ```
+HABLAR DE LOS MÓDULOS NUEVOS Y LA VISTA TAGS

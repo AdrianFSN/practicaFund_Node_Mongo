@@ -3,27 +3,29 @@ var router = express.Router();
 const AdNopop = require('../../models/AdNodepop');
 
 // GET /api/adsNodepop
-// Devuelve la lista de anuncios
+// Returns the whole list of ads
 router.get('/', async function (req, res, next) {
-    // ejemplo de filtro en Postman: http://127.0.0.1:3001/api/adsNodepop?price=500
+    // Sample: http://127.0.0.1:3001/api/adsNodepop?price=500
     try {
         const filterByTag = req.query.tag;
         const filterByName = req.query.name;
         const filterByOnSale = req.query.onSale;
         const filterByPrice = req.query.price;
 
-        //paginación
-        //http://127.0.0.1:3001/api/adsNodepop?skip=2&limit=2
+        // Paging
+        // Sample http://127.0.0.1:3001/api/adsNodepop?skip=2&limit=2
         const skip = req.query.skip;
         const limit = req.query.limit;
-        //ordenación
-        //http://127.0.0.1:3001/api/adsNodepop?skip=2&limit=2&sort=price
-        //http://127.0.0.1:3001/api/adsNodepop?sort=price
-        //http://127.0.0.1:3001/api/adsNodepop?sort=-price
-        //http://127.0.0.1:3001/api/adsNodepop?sort=-price name
+
+        // Ordering
+        // Sample http://127.0.0.1:3001/api/adsNodepop?skip=2&limit=2&sort=price
+        // Sample http://127.0.0.1:3001/api/adsNodepop?sort=price
+        // Sample http://127.0.0.1:3001/api/adsNodepop?sort=-price
+        // Sample http://127.0.0.1:3001/api/adsNodepop?sort=-price%20name
         const sort = req.query.sort;
-        //fields selection
-        //http://127.0.0.1:3001/api/adsNodepop?fields=name
+
+        // Fields selection
+        // Sample http://127.0.0.1:3001/api/adsNodepop?fields=name
         const fields = req.query.fields;
 
 
@@ -51,7 +53,7 @@ router.get('/', async function (req, res, next) {
 });
 
 // GET /api/adsNodepop/<_id>
-// Devuelve un solo anuncio
+// Returns a single ad (specified by id)
 router.get('/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
@@ -64,7 +66,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // PUT /api/adsNodepop/<_id> (body)
-// actualiza un anuncio
+// updates an ad
 router.put('/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
@@ -79,14 +81,14 @@ router.put('/:id', async (req, res, next) => {
 })
 
 // POST /api/adsNodepop (body)
-// Insertar un anuncio nuevo
+// Insert a new add
 router.post('/', async (req, res, next) => {
     try {
         const data = req.body;
 
-        // primero guardamos una instancia de anuncio en memoria
+        // Save an instance of the ad in memory
         const newAd = new AdNopop(data);
-        // Después lo persistimos (guardamos) en la BD
+        // Then persist (save) in the DB
         const insertedNewAd = await newAd.save();
         res.json({ result: insertedNewAd });
     } catch (error) {
@@ -95,12 +97,12 @@ router.post('/', async (req, res, next) => {
 })
 
 // DELETE /api/adsNodepop/<_id>
-// Elimina un anuncio
+// Eliminates an ad
 router.delete('/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
         await AdNopop.deleteOne({ _id: id });
-        res.json(); // sin más, porque al haber borrado, con que la respuesta sea un 200, todo habrá ido bien.
+        res.json(); // No message. If answer is 200 OK in Postman, it went well.
     } catch (error) {
         next(error);
     };

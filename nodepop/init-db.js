@@ -9,6 +9,7 @@ main().catch(err => console.log('Ha habido un error', err));
 
 async function main() {
     await new Promise((resolve) => connection.once('open', resolve));
+
     const deleteDB = await askQuestion('Are you sure you want to delete all the content in the Data Base? This action can not be restored (No) ')
     if (!deleteDB) {
         process.exit();
@@ -41,6 +42,6 @@ function askQuestion(text) {
         ifc.question(text, answer => {
             ifc.close();
             resolve(answer.toLowerCase() === 'yes');
-        })
+        });
     });
-}
+};

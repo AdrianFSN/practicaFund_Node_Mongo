@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const AdNopop = require('../../models/AdNodepop');
+const AdNopop = require('../models/AdNodepop');
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
