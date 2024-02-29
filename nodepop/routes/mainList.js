@@ -1,47 +1,77 @@
 var express = require('express');
 var router = express.Router();
 const AdNopop = require('../models/AdNodepop');
+const { query, validationResult } = require('express-validator');
 
 /* GET home page. */
-router.get('/', async function (req, res, next) {
-    try {
-        // filters
-        const filterByTag = req.query.tag;
-        const filterByName = req.query.name;
-        const filterByOnSale = req.query.onSale;
-        const filterByPrice = req.query.price;
+router.get('/',
 
-        //paging
-        const skip = req.query.skip;
-        const limit = req.query.limit;
+    [
+        query('name').optional().notEmpty().withMessage('At least one character is needed to search by name'),
+        query('onSale').optional().custom(value => {
+            const valueToLowerCase = value.toLowerCase();
+            const saleStatus = ['true', 'false'];
 
-        //ordering
-        const sort = req.query.sort;
+            if (saleStatus.includes(valueToLowerCase)) {
+                return true;
+            }
 
-        //fields selection
-        const fields = req.query.fields;
+        }).withMessage('On sale can only be "true" or "false"'),
 
-        const filter = {};
+        query('tag').optional().custom(value => {
+            const valueToLowerCase = value.toLowerCase();
+            const availableTags = ['lifestyle', 'mobile', 'motor', 'work'];
 
-        if (filterByTag) {
-            filter.tag = filterByTag;
+            if (availableTags.includes(valueToLowerCase))
+                return true;
         }
-        if (filterByName) {
-            filter.name = new RegExp('^' + filterByName, "i");
-        }
-        if (filterByOnSale) {
-            filter.onSale = filterByOnSale;
-        }
-        if (filterByPrice) {
-            filter.price = filterByPrice;
-        }
+        ).withMessage('Tag can only be "Lifestyle", "Mobile", "Motor" or "Work"'),
+        query('price').optional().isNumeric().withMessage('Price should be a number')
+    ],
 
-        const adsList = await AdNopop.listCriterias(filter, skip, limit, sort, fields);
-        res.render('index', { title: 'Nodepop', adsList: adsList });
+    async function (req, res, next) {
+        try {
 
-    } catch (error) {
-        next(error);
-    }
-});
+            validationResult(req).throw();
+
+            // filters
+            const filterByTag = req.query.tag;
+            const filterByName = req.query.name;
+            const filterByOnSale = req.query.onSale;
+            const filterByPrice = req.query.price;
+
+            //paging
+            const skip = req.query.skip;
+            const limit = req.query.limit;
+
+            //ordering
+            const sort = req.query.sort;
+
+            //fields selection
+            const fields = req.query.fields;
+
+            const filter = {};
+
+            if (filterByTag) {
+                filter.tag = filterByTag;
+            }
+            if (filterByName) {
+                filter.name = new RegExp('^' + filterByName, "i");
+            }
+            if (filterByOnSale) {
+                filter.onSale = filterByOnSale;
+            }
+            if (filterByPrice) {
+                filter.price = filterByPrice;
+            }
+
+            const adsList = await AdNopop.listCriterias(filter, skip, limit, sort, fields);
+
+            res.render('index', { title: 'Nodepop', adsList: adsList });
+
+        } catch (error) {
+            next(error);
+        };
+    });
 
 module.exports = router;

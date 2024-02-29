@@ -4,6 +4,6 @@ var router = express.Router();
 const adsRouter = require('./mainList');
 
 
-router.use('/', adsRouter);
 
+router.use('/', adsRouter);
 module.exports = router;

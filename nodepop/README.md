@@ -118,4 +118,37 @@ Answer 'yes' if you are sure of what you are doing.
 ```sh
 npm run init-db
 ```
+## Validators
+Validators added for main DB queries:
+
+```js
+/* GET home page. */
+router.get('/',
+
+    [
+        query('name').optional().notEmpty().withMessage('At least one character is needed to search by name'),
+        query('onSale').optional().custom(value => {
+            const valueToLowerCase = value.toLowerCase();
+            const saleStatus = ['true', 'false'];
+
+            if (saleStatus.includes(valueToLowerCase)) {
+                return true;
+            }
+
+        }).withMessage('On sale can only be "true" or "false"'),
+
+        query('tag').optional().custom(value => {
+            const valueToLowerCase = value.toLowerCase();
+            const availableTags = ['lifestyle', 'mobile', 'motor', 'work'];
+
+            if (availableTags.includes(valueToLowerCase))
+                return true;
+        }
+        ).withMessage('Tag can only be "Lifestyle", "Mobile", "Motor" or "Work"'),
+        query('price').optional().isNumeric().withMessage('Price should be a number')
+    ]
+    ...
+
+```
+
 HABLAR DE LOS MÓDULOS NUEVOS Y LA VISTA TAGS

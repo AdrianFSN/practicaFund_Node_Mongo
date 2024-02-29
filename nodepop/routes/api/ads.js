@@ -29,21 +29,14 @@ router.get('/', async function (req, res, next) {
         if (filterByName) {
             filter.name = new RegExp('^' + filterByName, "i");
         }
-
         if (filterByOnSale) {
             filter.onSale = filterByOnSale;
         }
         if (filterByPrice) {
             filter.price = filterByPrice;
         }
-
         const adsList = await AdNopop.listCriterias(filter, skip, limit, sort, fields); // he cambiado find por listCriterias
-
-        if (req.accepts('html')) {
-            res.render('index', { title: 'Nodepop', adsList: adsList });
-        } else {
-            res.json({ results: adsList });
-        };
+        res.json({ results: adsList });
 
     } catch (error) {
         next(error);
@@ -57,11 +50,7 @@ router.get('/:id', async (req, res, next) => {
         const id = req.params.id;
         const oneAd = await AdNopop.findById(id);
 
-        if (req.accepts('html')) {
-            res.render('index', { title: 'Nodepop', adsList: [oneAd] });
-        } else {
-            res.json({ result: oneAd });
-        }
+        res.json({ result: oneAd });
     } catch (error) {
         next(error);
     }
