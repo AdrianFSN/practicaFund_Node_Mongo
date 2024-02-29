@@ -35,7 +35,7 @@ router.get('/',
 
             // filters
             const filterByTag = req.query.tag ? req.query.tag.toLowerCase() : req.query.tag;
-            const filterByName = req.query.name;
+            const filterByName = req.query.name ? req.query.name.toLowerCase() : req.query.name;;
             const filterByOnSale = req.query.onSale ? req.query.onSale.toLowerCase() : req.query.onSale;
             const filterByPrice = req.query.price;
 
