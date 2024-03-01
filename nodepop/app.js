@@ -32,6 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 app.use('/api/adsNodepop', basicAuth, require('./routes/api/ads'));
 app.use('/api/adsNodepop/tags', require('./routes/api/availableTags'));
+app.use('/api/adsNodepop/insert', basicAuth, require('./routes/api/insertOneAd'));
+app.use('/api/adsNodepop/update', basicAuth, require('./routes/api/updateAd'));
 app.use('/api/adsNodepop/delete', basicAuth, require('./routes/api/deleteAds'));
 
 /**

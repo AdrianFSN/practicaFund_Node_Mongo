@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const AdNopop = require('../../models/AdNodepop');
 
-// DELETE /api/adsNodepop/<_id>
+// DELETE /api/adsNodepop/delete/<_id>
 // Eliminates an ad
 router.delete('/:id', async (req, res, next) => {
     try {
