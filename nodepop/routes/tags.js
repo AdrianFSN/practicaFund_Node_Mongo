@@ -8,6 +8,7 @@ router.get('/', async function (req, res, next) {
     try {
         const tagsList = await AdNopop.distinct("tag");
         res.render('tags', { tags: tagsList });
+        //res.json({ results: tagsList });
 
     } catch (error) {
         next(error);

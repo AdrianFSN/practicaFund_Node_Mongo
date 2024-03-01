@@ -31,6 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
  * Rutas del API
  */
 app.use('/api/adsNodepop', basicAuth, require('./routes/api/ads'));
+app.use('/api/adsNodepop/tags', require('./routes/api/availableTags'));
+app.use('/api/adsNodepop/delete', basicAuth, require('./routes/api/deleteAds'));
 
 /**
  * Rutas del website
