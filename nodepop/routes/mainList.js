@@ -24,13 +24,24 @@ router.get('/',
             const jsonTagsList = fs.readFileSync('./data/tagsList.json', 'utf-8');
             const tagsList = JSON.parse(jsonTagsList);
             const availableTags = tagsList.results;
-            //console.log('Esto es available tags', availableTags)
 
             if (availableTags.includes(valueToLowerCase))
                 return true;
         }
         ).withMessage('Tag can only be "Lifestyle", "Mobile", "Motor" or "Work"'),
-        query('price').optional().isNumeric().withMessage('Price can not be empty and should be a number')
+        query('price').optional().isNumeric().withMessage('Price can not be empty and should be a number'),
+        query('skip').optional().isNumeric().withMessage('Skip can not be empty and should be a number'),
+        query('limit').optional().isNumeric().withMessage('Limit can not be empty and should be a number'),
+        query('fields').optional().custom(value => {
+            const valueToLowerCase = value.toLowerCase();
+            const jsonKeysList = fs.readFileSync('./data/keysList.json', 'utf-8');
+            const keysList = JSON.parse(jsonKeysList);
+            const availableKeys = keysList.results;
+
+            if (availableKeys.includes(valueToLowerCase))
+                return true;
+        }
+        ).withMessage('You can only filter by "name", "sale", "price" or "tag"'),
     ],
 
     async function (req, res, next) {
@@ -50,9 +61,8 @@ router.get('/',
 
             //ordering
             const sort = req.query.sort;
-
             //fields selection
-            const fields = req.query.fields;
+            const fields = req.query.fields ? req.query.fields.toLowerCase() : req.query.fields;
 
             const filter = {};
 

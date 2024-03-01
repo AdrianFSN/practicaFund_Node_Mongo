@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const AdNopop = require('../../models/AdNodepop');
-const { query, validationResult } = require('express-validator');
 
 // GET /tags
 //Compile an array of used tags

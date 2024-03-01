@@ -1,0 +1,8 @@
+{
+    "results": [
+        "name",
+        "price",
+        "onSale",
+        "tag"
+    ]
+}
