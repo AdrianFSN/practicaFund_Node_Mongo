@@ -1,6 +1,9 @@
+'use strict'
+
 const express = require('express');
 const router = express.Router();
 const AdNopop = require('../models/AdNodepop');
+
 
 // GET /tags
 //Compile an array of used tags
