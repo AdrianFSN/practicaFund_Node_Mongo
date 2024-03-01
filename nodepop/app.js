@@ -42,7 +42,7 @@ app.use('/api/delete', basicAuth, require('./routes/api/deleteAds'));
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-//app.use('/tags', require('./routes/tags'));
+app.use('/tags', require('./routes/tags'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

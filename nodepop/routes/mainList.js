@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const AdNopop = require('../models/AdNodepop');
 const { query, validationResult } = require('express-validator');
+const fs = require('fs');
+
 
 /* GET home page. */
 router.get('/',
@@ -19,7 +21,10 @@ router.get('/',
 
         query('tag').optional().custom(value => {
             const valueToLowerCase = value.toLowerCase();
-            const availableTags = ['lifestyle', 'mobile', 'motor', 'work'];
+            const jsonTagsList = fs.readFileSync('./data/tagsList.json', 'utf-8');
+            const tagsList = JSON.parse(jsonTagsList);
+            const availableTags = tagsList.results;
+            //console.log('Esto es available tags', availableTags)
 
             if (availableTags.includes(valueToLowerCase))
                 return true;
