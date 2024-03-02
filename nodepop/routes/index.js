@@ -43,6 +43,18 @@ router.get('/',
                 return true;
         }
         ).withMessage('You can only filter by "name", "sale", "price" or "tag"'),
+        query('sort').optional().custom(value => {
+            if (value.startsWith('-')) {
+                value = value.slice(1)
+            }
+            const jsonKeysList = fs.readFileSync('./data/keysList.json', 'utf-8');
+            const keysList = JSON.parse(jsonKeysList);
+            const availableKeys = keysList.results;
+
+            if (availableKeys.includes(value))
+                return true;
+        }
+        ).withMessage('You can only filter by "name", "sale", "price" or "tag"')
     ],
 
     async function (req, res, next) {
