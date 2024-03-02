@@ -1,7 +1,17 @@
 [
     {
         "name": "IPhone 13",
-        "onSale": true,
+        "sale": true,
+        "price": 500,
+        "picture": "aaaa.png",
+        "tag": [
+            "mobile",
+            "work"
+        ]
+    },
+    {
+        "name": "IPhone 500",
+        "sale": true,
         "price": 500,
         "picture": "aaaa.png",
         "tag": [
@@ -11,7 +21,7 @@
     },
     {
         "name": "Samsung Galaxy F4",
-        "onSale": true,
+        "sale": true,
         "price": 600,
         "picture": "bbbb.png",
         "tag": [
@@ -21,7 +31,7 @@
     },
     {
         "name": "Motorola Moto G23",
-        "onSale": true,
+        "sale": true,
         "price": 130,
         "picture": "cccc.png",
         "tag": [
@@ -31,7 +41,7 @@
     },
     {
         "name": "Realme C51",
-        "onSale": false,
+        "sale": false,
         "price": 85,
         "picture": "dddd.png",
         "tag": [
@@ -41,7 +51,7 @@
     },
     {
         "name": "Xiaomi Redmi Note 13",
-        "onSale": false,
+        "sale": false,
         "price": 190,
         "picture": "eeee.png",
         "tag": [
@@ -51,7 +61,7 @@
     },
     {
         "name": "Leotec Smartwatch MultiSport",
-        "onSale": true,
+        "sale": true,
         "price": 25,
         "picture": "ffff.png",
         "tag": [
@@ -60,7 +70,7 @@
     },
     {
         "name": "Olsson Fun Patinete Eléctrico",
-        "onSale": true,
+        "sale": true,
         "price": 100,
         "picture": "gggg.png",
         "tag": [
@@ -69,7 +79,7 @@
     },
     {
         "name": "Freidora de Aire",
-        "onSale": false,
+        "sale": false,
         "price": 30,
         "picture": "hhhh.png",
         "tag": [
@@ -78,7 +88,7 @@
     },
     {
         "name": "Cafetera DeLonghi",
-        "onSale": false,
+        "sale": false,
         "price": 100,
         "picture": "iiii.png",
         "tag": [
@@ -87,7 +97,7 @@
     },
     {
         "name": "Sony PlayStation 5 Slim",
-        "onSale": true,
+        "sale": true,
         "price": 450,
         "picture": "jjjj.png",
         "tag": [
@@ -96,7 +106,7 @@
     },
     {
         "name": "VOLKSWAGEN TOURAN SPORT 2.0 TDI",
-        "onSale": true,
+        "sale": true,
         "price": 31500,
         "picture": "kkkk.png",
         "tag": [
@@ -105,7 +115,7 @@
     },
     {
         "name": "CITROEN C3 PURETECH",
-        "onSale": true,
+        "sale": true,
         "price": 11000,
         "picture": "llll.png",
         "tag": [
@@ -114,7 +124,7 @@
     },
     {
         "name": "POLESTAR 2",
-        "onSale": true,
+        "sale": true,
         "price": 51000,
         "picture": "mmmm.png",
         "tag": [
@@ -123,7 +133,7 @@
     },
     {
         "name": "OPEL GRANDLAND X",
-        "onSale": false,
+        "sale": false,
         "price": 10000,
         "picture": "nnnn.png",
         "tag": [
@@ -132,7 +142,7 @@
     },
     {
         "name": "Vespa 125",
-        "onSale": true,
+        "sale": true,
         "price": 2000,
         "picture": "oooo.png",
         "tag": [
@@ -142,7 +152,7 @@
     },
     {
         "name": "Mini Tractor",
-        "onSale": false,
+        "sale": false,
         "price": 2300,
         "picture": "pppp.png",
         "tag": [
@@ -152,7 +162,7 @@
     },
     {
         "name": "Prensa Multicapa",
-        "onSale": true,
+        "sale": true,
         "price": 750,
         "picture": "qqqq.png",
         "tag": [
@@ -161,7 +171,7 @@
     },
     {
         "name": "Palets",
-        "onSale": false,
+        "sale": false,
         "price": 5,
         "picture": "rrrr.png",
         "tag": [
@@ -170,7 +180,7 @@
     },
     {
         "name": "Carretilla Mano",
-        "onSale": false,
+        "sale": false,
         "price": 15,
         "picture": "ssss.png",
         "tag": [
@@ -179,7 +189,7 @@
     },
     {
         "name": "Guantes Jardinería",
-        "onSale": true,
+        "sale": true,
         "price": 25,
         "picture": "tttt.png",
         "tag": [

@@ -9,7 +9,7 @@ const adSchema = mongoose.Schema({
     name: {
         type: String, required: true, index: true
     },
-    onSale: { type: Boolean, required: true, index: true },
+    sale: { type: Boolean, required: true, index: true },
     price: { type: Number, required: true, index: true },
     picture: String,
     tag: {

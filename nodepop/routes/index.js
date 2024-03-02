@@ -11,7 +11,7 @@ router.get('/',
 
     [
         query('name').optional().notEmpty().withMessage('At least one character is needed to search by name'),
-        query('onSale').optional().custom(value => {
+        query('sale').optional().custom(value => {
             const valueToBoolean = Boolean(value);
 
             if (valueToBoolean === true || valueToBoolean === false) {
