@@ -33,7 +33,7 @@
             <%= ad.name %>
           </h2>
           <p>
-            Tipo de anuncio: <%= ad.onSale ? 'Se vende' : 'Se busca' %>
+            Tipo de anuncio: <%= ad.sale ? 'Se vende' : 'Se busca' %>
           </p>
           <% if (ad.price) { %>
             <p>

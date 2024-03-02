@@ -54,7 +54,7 @@ router.get('/',
             if (availableKeys.includes(value))
                 return true;
         }
-        ).withMessage('You can only filter by "name", "sale", "price" or "tag"')
+        ).withMessage('You can only sort by "name", "sale", "price" or "tag"')
     ],
 
     async function (req, res, next) {
@@ -65,7 +65,7 @@ router.get('/',
             // filters
             const filterByTag = req.query.tag ? req.query.tag.toLowerCase() : req.query.tag;
             const filterByName = req.query.name ? req.query.name.toLowerCase() : req.query.name;;
-            const filterByOnSale = req.query.onSale ? req.query.onSale.toLowerCase() : req.query.onSale;
+            const filterByOnSale = req.query.sale ? req.query.sale.toLowerCase() : req.query.sale;
             const filterByPrice = req.query.price;
 
             //paging
@@ -86,7 +86,7 @@ router.get('/',
                 filter.name = new RegExp('^' + filterByName, "i");
             }
             if (filterByOnSale) {
-                filter.onSale = filterByOnSale;
+                filter.sale = filterByOnSale;
             }
             if (filterByPrice) {
                 filter.price = filterByPrice;
