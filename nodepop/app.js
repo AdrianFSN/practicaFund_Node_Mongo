@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Rutas del API
  */
-app.use('/api/adsNodepop', basicAuth, require('./routes/api/ads'));
+app.use('/api/adsNodepop', require('./routes/api/ads'));
 app.use('/api/tags', require('./routes/api/availableTags'));
 app.use('/api/insert', basicAuth, require('./routes/api/insertOneAd'));
 app.use('/api/update', basicAuth, require('./routes/api/updateAd'));
