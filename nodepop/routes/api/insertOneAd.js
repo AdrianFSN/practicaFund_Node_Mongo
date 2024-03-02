@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const AdNopop = require('../../models/AdNodepop');
-const { query, validationResult } = require('express-validator');
 
 // POST /api/adsNodepop/insert (body)
 // Insert a new add
