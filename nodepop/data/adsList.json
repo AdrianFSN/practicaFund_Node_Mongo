@@ -3,7 +3,7 @@
         "name": "IPhone 13",
         "sale": true,
         "price": 500,
-        "picture": "aaaa.png",
+        "picture": "mobile.jpg",
         "tag": [
             "mobile",
             "work"
@@ -13,7 +13,7 @@
         "name": "IPhone 500",
         "sale": true,
         "price": 500,
-        "picture": "aaaa.png",
+        "picture": "mobile.jpg",
         "tag": [
             "mobile",
             "work"
@@ -23,7 +23,7 @@
         "name": "Samsung Galaxy F4",
         "sale": true,
         "price": 600,
-        "picture": "bbbb.png",
+        "picture": "mobile.jpg",
         "tag": [
             "mobile",
             "work"
@@ -33,7 +33,7 @@
         "name": "Motorola Moto G23",
         "sale": true,
         "price": 130,
-        "picture": "cccc.png",
+        "picture": "mobile.jpg",
         "tag": [
             "mobile",
             "work"
@@ -43,7 +43,7 @@
         "name": "Realme C51",
         "sale": false,
         "price": 85,
-        "picture": "dddd.png",
+        "picture": "mobile.jpg",
         "tag": [
             "mobile",
             "work"
@@ -53,7 +53,7 @@
         "name": "Xiaomi Redmi Note 13",
         "sale": false,
         "price": 190,
-        "picture": "eeee.png",
+        "picture": "mobile.jpg",
         "tag": [
             "mobile",
             "work"
@@ -63,7 +63,7 @@
         "name": "Leotec Smartwatch MultiSport",
         "sale": true,
         "price": 25,
-        "picture": "ffff.png",
+        "picture": "mobile.jpg",
         "tag": [
             "lifestyle"
         ]
@@ -72,7 +72,7 @@
         "name": "Olsson Fun Patinete Eléctrico",
         "sale": true,
         "price": 100,
-        "picture": "gggg.png",
+        "picture": "lifestyle.jpg",
         "tag": [
             "lifestyle"
         ]
@@ -81,7 +81,7 @@
         "name": "Freidora de Aire",
         "sale": false,
         "price": 30,
-        "picture": "hhhh.png",
+        "picture": "lifestyle.jpg",
         "tag": [
             "lifestyle"
         ]
@@ -90,7 +90,7 @@
         "name": "Cafetera DeLonghi",
         "sale": false,
         "price": 100,
-        "picture": "iiii.png",
+        "picture": "lifestyle.jpg",
         "tag": [
             "lifestyle"
         ]
@@ -99,7 +99,7 @@
         "name": "Sony PlayStation 5 Slim",
         "sale": true,
         "price": 450,
-        "picture": "jjjj.png",
+        "picture": "lifestyle.jpg",
         "tag": [
             "lifestyle"
         ]
@@ -108,7 +108,7 @@
         "name": "VOLKSWAGEN TOURAN SPORT 2.0 TDI",
         "sale": true,
         "price": 31500,
-        "picture": "kkkk.png",
+        "picture": "motor.jpg",
         "tag": [
             "motor"
         ]
@@ -117,7 +117,7 @@
         "name": "CITROEN C3 PURETECH",
         "sale": true,
         "price": 11000,
-        "picture": "llll.png",
+        "picture": "motor.jpg",
         "tag": [
             "motor"
         ]
@@ -126,7 +126,7 @@
         "name": "POLESTAR 2",
         "sale": true,
         "price": 51000,
-        "picture": "mmmm.png",
+        "picture": "motor.jpg",
         "tag": [
             "motor"
         ]
@@ -135,7 +135,7 @@
         "name": "OPEL GRANDLAND X",
         "sale": false,
         "price": 10000,
-        "picture": "nnnn.png",
+        "picture": "motor.jpg",
         "tag": [
             "motor"
         ]
@@ -144,7 +144,7 @@
         "name": "Vespa 125",
         "sale": true,
         "price": 2000,
-        "picture": "oooo.png",
+        "picture": "motor.jpg",
         "tag": [
             "motor",
             "lifestyle"
@@ -154,7 +154,7 @@
         "name": "Mini Tractor",
         "sale": false,
         "price": 2300,
-        "picture": "pppp.png",
+        "picture": "work.jpg",
         "tag": [
             "motor",
             "work"
@@ -164,7 +164,7 @@
         "name": "Prensa Multicapa",
         "sale": true,
         "price": 750,
-        "picture": "qqqq.png",
+        "picture": "work.jpg",
         "tag": [
             "work"
         ]
@@ -173,7 +173,7 @@
         "name": "Palets",
         "sale": false,
         "price": 5,
-        "picture": "rrrr.png",
+        "picture": "work.jpg",
         "tag": [
             "work"
         ]
@@ -182,7 +182,7 @@
         "name": "Carretilla Mano",
         "sale": false,
         "price": 15,
-        "picture": "ssss.png",
+        "picture": "work.jpg",
         "tag": [
             "work"
         ]
@@ -191,7 +191,7 @@
         "name": "Guantes Jardinería",
         "sale": true,
         "price": 25,
-        "picture": "tttt.png",
+        "picture": "work.jpg",
         "tag": [
             "work"
         ]
