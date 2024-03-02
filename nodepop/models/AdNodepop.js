@@ -1,7 +1,8 @@
 // Aquí va el modelo de construcción de cada anuncio
 // Esquema de Mongoose
-
+'use strict'
 const mongoose = require('mongoose');
+const fs = require('fs');
 
 
 const adSchema = mongoose.Schema({
@@ -15,9 +16,13 @@ const adSchema = mongoose.Schema({
         type: [String],
         validate: {
             validator: (tags) => {
-                return tags.length > 0;
+                const jsonTagsList = fs.readFileSync('./data/tagsList.json', 'utf-8');
+                const tagsList = JSON.parse(jsonTagsList);
+                const availableTags = tagsList.results;
+                return tags.every(item => availableTags.includes(item)) && tags.length > 0;
+                //return tags.length > 0;
             },
-            message: 'All ads must have at least one tag'
+            message: 'All ads must have at least one tag out of "lifestyle", "work", "mobile" and "motor" (lowercased).'
         },
         index: true
     }

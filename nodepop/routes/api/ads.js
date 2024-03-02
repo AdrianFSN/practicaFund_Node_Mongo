@@ -78,7 +78,6 @@ router.get('/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
         const oneAd = await AdNopop.findById(id);
-
         res.json({ result: oneAd });
     } catch (error) {
         next(error);
