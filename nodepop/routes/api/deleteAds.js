@@ -4,7 +4,7 @@ var router = express.Router();
 const AdNopop = require('../../models/AdNodepop');
 const { param, validationResult } = require('express-validator');
 
-// DELETE /api/adsNodepop/delete/<_id>
+// DELETE /api/delete/<_id>
 // Eliminates an ad
 router.delete('/:id',
     [

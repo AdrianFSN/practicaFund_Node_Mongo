@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 const AdNopop = require('../../models/AdNodepop');
 
-// POST /api/adsNodepop/insert (body)
+// POST /api/insert (body)
 // Insert a new add
 router.post('/', async (req, res, next) => {
     try {

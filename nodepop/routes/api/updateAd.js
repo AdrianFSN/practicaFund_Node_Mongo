@@ -6,7 +6,7 @@ const AdNopop = require('../../models/AdNodepop');
 const { body, param, validationResult } = require('express-validator');
 const fs = require('fs');
 
-// PUT /api/adsNodepop/update/<_id> (body)
+// PUT /api/update/<_id> (body)
 // updates an ad
 router.put('/:id',
     [

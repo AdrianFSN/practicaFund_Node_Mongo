@@ -5,8 +5,8 @@ const router = express.Router();
 //const AdNopop = require('../../models/AdNodepop');
 const RetrieverTags = require('../../models/RetrieveTags');
 
-// GET /tags
-//Compile an array of used tags
+// GET /api/tags
+//Compiles an array of used tags
 router.get('/', async function (req, res, next) {
     try {
         const retrievedTags = await RetrieverTags.retrieveTags();
