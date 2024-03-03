@@ -5,7 +5,7 @@ var router = express.Router();
 const AdNopop = require('../../models/AdNodepop');
 const { query, param, validationResult } = require('express-validator');
 //const fs = require('fs');
-const RetrieverAds = require('../../models/RetrieveAds')
+const RetrieverAds = require('../../models/RetrieveAds');
 
 
 
