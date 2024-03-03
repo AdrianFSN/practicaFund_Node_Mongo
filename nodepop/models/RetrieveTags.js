@@ -8,8 +8,8 @@ class TagsRetriever {
             return { results: tagsList };
         } catch (error) {
             throw error;
-        }
-    }
-}
+        };
+    };
+};
 
 module.exports = TagsRetriever;
