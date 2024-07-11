@@ -1,0 +1,43 @@
+.ads-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas iguales */
+  gap: 20px; /* Espacio entre anuncios */
+}
+
+.ad-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: relative;
+}
+
+.ad-item img {
+  max-width: 100%;
+  width: 400px;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 350px; /* Ajusta la posición verticalmente según sea necesario */
+  right: 10px; /* Ajusta la posición a la derecha */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.badge-venta {
+  background-color: #eb2b55; /* Rojo */
+}
+
+.badge-busca {
+  background-color: #4fc5da; /* Azul */
+}

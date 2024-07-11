@@ -6,53 +6,48 @@
     <%= title %>
   </title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/adsgrid.css' />
 </head>
 
 <body>
   <h1>
     <%= title %>
   </h1>
-  <p>
-    Te damos la bienvenida a <b>
+  <p>Te damos la bienvenida a <b>
       <%= title %>
-    </b>, tu tienda de segunda mano.
-  </p>
-  <p>
-    Artículos disponibles:
-  </p>
-  <p>
-    <% if (adsList.length===0) {%>
-      No se ha encontrado ningún anuncio con tus criterios de búsqueda.
-      <% }%>
-  </p>
-  <ul>
-    <% for (let i=0; i < adsList.length; i++) { %>
-      <% const ad=adsList[i]; %>
-        <li>
-          <h2>
-            <%= ad.name %>
-          </h2>
-          <p>
-            Tipo de anuncio: <%= ad.sale ? 'Se vende' : 'Se busca' %>
-          </p>
-          <% if (ad.price) { %>
-            <p>
-              Precio: <%= ad.price %> €
-            </p>
-            <% } %>
-              <% if (ad.tag && ad.tag.length> 0) { %>
-                <p>
-                  Categoría: <%= ad.tag.join(', ') %> 
-          </p>
-        <% } %>
-        <% if (ad.picture) { %>
-          <p>
-            <img src="/images/<%=ad.picture%>">
-          </p>
-        <% } %>
-      </li>
-    <% } %>
-  </ul>
+    </b>, tu tienda de segunda mano.</p>
+  <p>Artículos disponibles:</p>
+
+  <% if (adsList.length===0) { %>
+    <p>No se ha encontrado ningún anuncio con tus criterios de búsqueda.</p>
+    <% } else { %>
+      <div class="ads-container">
+        <% for (let i=0; i < adsList.length; i++) { %>
+          <% const ad=adsList[i]; %>
+            <div class="ad-item">
+              <% if (ad.picture) { %>
+                <p><img src="/images/<%= ad.picture %>"></p>
+                <% } %>
+                  <h2>
+                    <%= ad.name %>
+                  </h2>
+                  <% if (ad.sale) { %>
+                    <span class="badge badge-venta">Selling</span>
+                    <% } else { %>
+                      <span class="badge badge-busca">Looking for</span>
+                      <% } %>
+                        <% if (ad.price) { %>
+                          <p>Price: <%= ad.price %> €</p>
+                          <% } %>
+                            <% if (ad.tag && ad.tag.length> 0) { %>
+                              <p>Category: <%= ad.tag.join(', ') %></p>
+          <% } %>
+
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+
 </body>
 
 </html>
